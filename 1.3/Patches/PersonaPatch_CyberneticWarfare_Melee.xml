@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!--
+        Cybernetic Warfare and Special Weapons (Continued)
+
+        CW_PowerFist_Bond = persona power fist
+        CW_EnergyClaw_Bond = persona energy claw
+        CW_EnergySword_Bond = persona energy sword
+        CW_ChainSword_Bond = persona chain sword
+        CW_GunBlade_Bond = persona gun blade
+    -->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs</xpath>
+        <value>
+            <!-- ===== Melee ===== -->
+            <!-- Melee Base -->
+            <ThingDef Name="CyberneticWarfare_BaseMelee_Bond" ParentName="BaseWeapon_Bladelink" Abstract="True">
+                <weaponTags Inherit="False">
+                    <li>Bladelink</li>
+                </weaponTags>
+            </ThingDef>
+
+            <!-- CW_PowerFist_Bond -->
+            <ThingDef ParentName="CyberneticWarfare_BaseMelee_Bond">
+                <defName>CW_PowerFist_Bond</defName>
+                <label>persona power fist</label>
+                <description>A massive mechanized glove wired to the forearm for hydraulic power bursts and punches. It is vicious in combat, and its powerful mini-servos can crush a skull like a natural hand crushes an egg. This prototype extension was created in a hidden hightech laboratorium and fabricated by their very own underground facilities. Though it was developed in imperial times, their independent state was preserved until now.\n\nStrengthens the soldiers ability to open doors and to create those passages, where they need to be. Grants pushback and pummel mechanics.\n\n&lt;i&gt;Only in death does duty end. Even a man who has nothing can still offer his life. As the Emperor protects, so must we. Peace is not in my vocabulary.&lt;/i&gt;\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                <graphicData>
+                    <texPath>Things/WeaponMelee/PowerFist</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <drawSize>1.4</drawSize>
+                </graphicData>
+                <techLevel>Spacer</techLevel>
+                <generateCommonality>0.05</generateCommonality>
+                <equippedAngleOffset>0</equippedAngleOffset>
+                <soundInteract>CW_BatteryRecharge</soundInteract>
+                <statBases>
+                    <MarketValue>1200</MarketValue>
+                    <Flammability>0.6</Flammability>
+                    <DeteriorationRate>0.2</DeteriorationRate>
+                    <Beauty>-2</Beauty>
+                    <EquipDelay>3</EquipDelay>
+                    <Mass>5.5</Mass>
+                </statBases>
+                <weaponClasses>
+                    <li>MeleeBlunt</li>
+                </weaponClasses>
+                <equippedStatOffsets>
+                    <MiningSpeed>0.15</MiningSpeed>
+                    <MiningYield>0.15</MiningYield>
+                </equippedStatOffsets>
+                <thingSetMakerTags>
+                    <li>RewardSpecial</li>
+                </thingSetMakerTags>
+                <tools>
+                    <li>
+                        <label>Pummel</label>
+                        <capacities>
+                            <li>Poke</li>
+                        </capacities>
+                        <power>11</power>
+                        <cooldownTime>0.213</cooldownTime>
+                    </li>
+                    <li>
+                        <label>Crush</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>8.80</power>
+                        <cooldownTime>0.213</cooldownTime>
+                    </li>
+                    <li>
+                        <label>Knockback</label>
+                        <capacities>
+                            <li>BluntKnockback</li>
+                        </capacities>
+                        <power>13.20</power>
+                        <cooldownTime>1.700</cooldownTime>
+                    </li>
+                </tools>
+                <comps>
+                    <li>
+                        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                    </li>
+                </comps>
+                <thingCategories Inherit="False">
+                    <li>CW_CyborgWeaponry</li>
+                </thingCategories>
+                <weaponTags>
+                    <li>MeleeSpacer</li>
+                </weaponTags>
+            </ThingDef>
+
+            <RecipeDef>
+                <defName>Make_CW_PowerFist_Bond</defName>
+                <label>bond power fist</label>
+                <description>Bond an power fist.</description>
+                <jobString>Bonding a power fist.</jobString>
+                <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                <effectWorking>Cook</effectWorking>
+                <soundWorking>Recipe_Machining</soundWorking>
+                <workAmount>200000</workAmount>
+                <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                <researchPrerequisite>CW_CyberneticWarfare</researchPrerequisite>
+                <ingredients>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>CW_PowerFist</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>BondingCore</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                    <thingDefs>
+                        <li>CW_PowerFist</li>
+                        <li>BondingCore</li>
+                    </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                    <CW_PowerFist_Bond>1</CW_PowerFist_Bond>
+                </products>
+                <skillRequirements>
+                    <Intellectual>15</Intellectual>
+                </skillRequirements>
+                <workSkill>Intellectual</workSkill>
+                <recipeUsers>
+                    <li>BondingBench</li>
+                </recipeUsers>
+            </RecipeDef>
+
+            <!-- CW_EnergyClaw_Bond -->
+            <ThingDef ParentName="CyberneticWarfare_BaseMelee_Bond">
+                <defName>CW_EnergyClaw_Bond</defName>
+                <label>persona energy claw</label>
+                <description>A massive mechanized glove wired to the forearm with a retractable claw extension. The weapon system controls an enhanced servo motor for hydraulic power in close combat. Capable of hitting multiple targets and going through metal like butter.\n\nEnergy Claws were favored by they oldest of the Space Marine Clans. The bravest among them even broke into Tanks or climbed onto Mechs to destroy them from within.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                <graphicData>
+                    <texPath>Things/WeaponMelee/EnergyClaw</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <drawSize>1.4</drawSize>
+                </graphicData>
+                <techLevel>Ultra</techLevel>
+                <generateCommonality>0.05</generateCommonality>
+                <equippedAngleOffset>0</equippedAngleOffset>
+                <soundInteract>CW_BatteryRecharge</soundInteract>
+                <statBases>
+                    <MarketValue>1200</MarketValue>
+                    <Flammability>0.6</Flammability>
+                    <DeteriorationRate>0.2</DeteriorationRate>
+                    <Beauty>-2</Beauty>
+                    <EquipDelay>3</EquipDelay>
+                    <Mass>4.75</Mass>
+                </statBases>
+                <weaponClasses>
+                    <li>MeleeBlunt</li>
+                </weaponClasses>
+                <thingSetMakerTags>
+                    <li>RewardSpecial</li>
+                </thingSetMakerTags>
+                <tools>
+                    <li>
+                        <label>energy burst</label>
+                        <capacities>
+                            <li>Blunt</li>
+                            <li>Poke</li>
+                        </capacities>
+                        <power>8.80</power>
+                        <cooldownTime>0.213</cooldownTime>
+                    </li>
+                    <li>
+                        <label>blade</label>
+                        <capacities>
+                            <li>Scratch</li>
+                        </capacities>
+                        <power>15.40</power>
+                        <cooldownTime>0.213</cooldownTime>
+                        <armorPenetration>0.550</armorPenetration>
+                    </li>
+                    <li>
+                        <label>claw</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>11</power>
+                        <cooldownTime>0.213</cooldownTime>
+                    </li>
+                    <li>
+                        <label>sidestep stab</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>13.20</power>
+                        <cooldownTime>0.213</cooldownTime>
+                    </li>
+                </tools>
+                <comps>
+                    <li>
+                        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                    </li>
+                </comps>
+                <thingCategories Inherit="False">
+                    <li>CW_CyborgWeaponry</li>
+                </thingCategories>
+                <weaponTags>
+                    <li>MeleeSpacer</li>
+                </weaponTags>
+            </ThingDef>
+
+            <RecipeDef>
+                <defName>Make_CW_EnergyClaw_Bond</defName>
+                <label>bond energy claw</label>
+                <description>Bond an energy claw.</description>
+                <jobString>Bonding a energy claw.</jobString>
+                <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                <effectWorking>Cook</effectWorking>
+                <soundWorking>Recipe_Machining</soundWorking>
+                <workAmount>200000</workAmount>
+                <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                <researchPrerequisite>CW_CyberneticWarfare</researchPrerequisite>
+                <ingredients>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>CW_EnergyClaw</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>BondingCore</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                    <thingDefs>
+                        <li>CW_EnergyClaw</li>
+                        <li>BondingCore</li>
+                    </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                    <CW_EnergyClaw_Bond>1</CW_EnergyClaw_Bond>
+                </products>
+                <skillRequirements>
+                    <Intellectual>15</Intellectual>
+                </skillRequirements>
+                <workSkill>Intellectual</workSkill>
+                <recipeUsers>
+                    <li>BondingBench</li>
+                </recipeUsers>
+            </RecipeDef>
+
+            <!-- CW_EnergySword_Bond -->
+            <ThingDef ParentName="CyberneticWarfare_BaseMelee_Bond">
+                <defName>CW_EnergySword_Bond</defName>
+                <label>persona energy sword</label>
+                <description>A fluctuative power sword unloading while slashing and stabbing. The bundled energy can force the blade through the heaviest of platings. Made for the hands of Space Marines.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                <graphicData>
+                    <texPath>Things/WeaponMelee/EnergySword</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <drawSize>1.5</drawSize>
+                </graphicData>
+                <techLevel>Spacer</techLevel>
+                <generateCommonality>0.10</generateCommonality>
+                <equippedAngleOffset>-25</equippedAngleOffset>
+                <soundInteract>CW_BatteryRecharge</soundInteract>
+                <statBases>
+                    <MarketValue>1200</MarketValue>
+                    <Flammability>0.6</Flammability>
+                    <DeteriorationRate>0.2</DeteriorationRate>
+                    <Beauty>-2</Beauty>
+                    <EquipDelay>2</EquipDelay>
+                    <Mass>2.5</Mass>
+                </statBases>
+                <weaponClasses>
+                    <li>MeleePiercer</li>
+                </weaponClasses>
+                <equippedStatOffsets>
+                    <MeleeHitChance>0.10</MeleeHitChance>
+                </equippedStatOffsets>
+                <tools>
+                    <li>
+                        <label>handle</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>9.90</power>
+                        <cooldownTime>0.850</cooldownTime>
+                    </li>
+                    <li>
+                        <label>point</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>27.50</power>
+                        <armorPenetration>0.550</armorPenetration>
+                        <cooldownTime>0.850</cooldownTime>
+                    </li>
+                    <li>
+                        <label>edge</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>25.30</power>
+                        <cooldownTime>0.850</cooldownTime>
+                    </li>
+                </tools>
+                <comps>
+                    <li>
+                        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                    </li>
+                </comps>
+                <thingCategories Inherit="False">
+                    <li>CW_CyborgWeaponry</li>
+                </thingCategories>
+                <weaponTags>
+                    <li>MeleeSpacer</li>
+                </weaponTags>
+            </ThingDef>
+
+            <RecipeDef>
+                <defName>Make_CW_EnergySword_Bond</defName>
+                <label>bond energy sword</label>
+                <description>Bond an energy sword.</description>
+                <jobString>Bonding a energy sword.</jobString>
+                <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                <effectWorking>Cook</effectWorking>
+                <soundWorking>Recipe_Machining</soundWorking>
+                <workAmount>200000</workAmount>
+                <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                <researchPrerequisite>CW_CyberneticWarfare</researchPrerequisite>
+                <ingredients>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>CW_EnergySword</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>BondingCore</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                    <thingDefs>
+                        <li>CW_EnergySword</li>
+                        <li>BondingCore</li>
+                    </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                    <CW_EnergySword_Bond>1</CW_EnergySword_Bond>
+                </products>
+                <skillRequirements>
+                    <Intellectual>15</Intellectual>
+                </skillRequirements>
+                <workSkill>Intellectual</workSkill>
+                <recipeUsers>
+                    <li>BondingBench</li>
+                </recipeUsers>
+            </RecipeDef>
+
+            <!-- CW_ChainSword_Bond -->
+            <ThingDef ParentName="CyberneticWarfare_BaseMelee_Bond">
+                <defName>CW_ChainSword_Bond</defName>
+                <label>persona chain sword</label>
+                <description>A fierce power sword with a compound servo-motor in the handle. Its edge is surrounded by a chain saw mechaism with diamond sharp teeth. This prototype was carried by space marines to destroy tanks in one to one combat. It deals great damage, but is hard to manipulate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                <graphicData>
+                    <texPath>Things/WeaponMelee/ChainSword</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <drawSize>1.5</drawSize>
+                </graphicData>
+                <techLevel>Spacer</techLevel>
+                <generateCommonality>0.05</generateCommonality>
+                <equippedAngleOffset>-50</equippedAngleOffset>
+                <soundInteract>CW_ChainSaw</soundInteract>
+                <statBases>
+                    <MarketValue>1200</MarketValue>
+                    <Flammability>0.6</Flammability>
+                    <DeteriorationRate>0.2</DeteriorationRate>
+                    <Beauty>-2</Beauty>
+                    <EquipDelay>2</EquipDelay>
+                    <Mass>2.5</Mass>
+                </statBases>
+                <weaponClasses>
+                    <li>MeleeBlunt</li>
+                </weaponClasses>
+                <thingSetMakerTags>
+                    <li>RewardSpecial</li>
+                </thingSetMakerTags>
+                <tools>
+                    <li>
+                        <label>handle</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>12.10</power>
+                        <cooldownTime>2.550</cooldownTime>
+                    </li>
+                    <li>
+                        <label>point</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>27.50</power>
+                        <cooldownTime>1.700</cooldownTime>
+                    </li>
+                    <li>
+                        <label>edge</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>39.60</power>
+                        <armorPenetration>0.825</armorPenetration>
+                        <cooldownTime>0.850</cooldownTime>
+                    </li>
+                </tools>
+                <comps>
+                    <li>
+                        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                    </li>
+                </comps>
+                <thingCategories Inherit="False">
+                    <li>CW_CyborgWeaponry</li>
+                </thingCategories>
+                <weaponTags>
+                    <li>MeleeSpacer</li>
+                </weaponTags>
+            </ThingDef>
+
+            <RecipeDef>
+                <defName>Make_CW_ChainSword_Bond</defName>
+                <label>bond chain sword</label>
+                <description>Bond an chain sword.</description>
+                <jobString>Bonding a chain sword.</jobString>
+                <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                <effectWorking>Cook</effectWorking>
+                <soundWorking>Recipe_Machining</soundWorking>
+                <workAmount>200000</workAmount>
+                <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                <researchPrerequisite>CW_FrameworkWeaponry</researchPrerequisite>
+                <ingredients>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>CW_ChainSword</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>BondingCore</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                    <thingDefs>
+                        <li>CW_ChainSword</li>
+                        <li>BondingCore</li>
+                    </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                    <CW_ChainSword_Bond>1</CW_ChainSword_Bond>
+                </products>
+                <skillRequirements>
+                    <Intellectual>15</Intellectual>
+                </skillRequirements>
+                <workSkill>Intellectual</workSkill>
+                <recipeUsers>
+                    <li>BondingBench</li>
+                </recipeUsers>
+            </RecipeDef>
+
+            <!-- CW_GunBlade_Bond -->
+            <ThingDef ParentName="CyberneticWarfare_BaseMelee_Bond">
+                <defName>CW_GunBlade_Bond</defName>
+                <label>persona gun blade</label>
+                <description>An ergonomic handgun with a comfortable blade extension. This attempt tries to counterattack the lack of close combat capacities of its weapon type, based on an old gun design by a well-known weaponsmith.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                <graphicData>
+                    <texPath>Things/WeaponMelee/GunBlade</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                    <drawSize>1.3</drawSize>
+                </graphicData>
+                <techLevel>Spacer</techLevel>
+                <generateCommonality>0.05</generateCommonality>
+                <soundInteract>Interact_Autopistol</soundInteract>
+                <statBases>
+                    <MarketValue>1200</MarketValue>
+                    <Flammability>0.6</Flammability>
+                    <DeteriorationRate>0.2</DeteriorationRate>
+                    <Beauty>-2</Beauty>
+                    <EquipDelay>2</EquipDelay>
+                    <Mass>2.5</Mass>
+                    <AccuracyTouch>0.748</AccuracyTouch>
+                    <AccuracyShort>0.781</AccuracyShort>
+                    <AccuracyMedium>0.814</AccuracyMedium>
+                    <AccuracyLong>0.759</AccuracyLong>
+                    <RangedWeapon_Cooldown>0.085</RangedWeapon_Cooldown>
+                </statBases>
+                <weaponClasses>
+                    <li>MeleePiercer</li>
+                </weaponClasses>
+                <equippedStatOffsets>
+                    <MeleeHitChance>0.05</MeleeHitChance>
+                </equippedStatOffsets>
+                <tools>
+                    <li>
+                        <label>handle</label>
+                        <capacities>
+                            <li>Blunt</li>
+                        </capacities>
+                        <power>9.900</power>
+                        <cooldownTime>2.550</cooldownTime>
+                    </li>
+                    <li>
+                        <label>point</label>
+                        <capacities>
+                            <li>Stab</li>
+                        </capacities>
+                        <power>19.800</power>
+                        <armorPenetration>0.110</armorPenetration>
+                        <cooldownTime>1.275</cooldownTime>
+                    </li>
+                    <li>
+                        <label>blade</label>
+                        <capacities>
+                            <li>Cut</li>
+                        </capacities>
+                        <power>23.100</power>
+                        <cooldownTime>1.275</cooldownTime>
+                    </li>
+                </tools>
+                <verbs>
+                    <li Class="CyberneticWarfare.VerbPropertiesCW">
+                        <label>Gunslinger</label>
+                        <verbClass>CyberneticWarfare.Verb_ShootCW</verbClass>
+                        <hasStandardCommand>true</hasStandardCommand>
+                        <defaultProjectile>CW_Gunslinger_Bond</defaultProjectile>
+                        <warmupTime>0.255</warmupTime>
+                        <range>25.9</range>
+                        <soundCast>Shot_Revolver</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                    </li>
+                    <li Class="CyberneticWarfare.VerbPropertiesCW">
+                        <label>Pulsefire</label>
+                        <verbClass>CyberneticWarfare.Verb_ShootCW</verbClass>
+                        <hasStandardCommand>false</hasStandardCommand>
+                        <defaultProjectile>CW_Pulse_Bond</defaultProjectile>
+                        <warmupTime>1.700</warmupTime>
+                        <range>29.9</range>
+                        <burstShotCount>7</burstShotCount>
+                        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                        <soundCast>CW_BlasterShot</soundCast>
+                        <soundCastTail>GunTail_Medium</soundCastTail>
+                        <muzzleFlashScale>9</muzzleFlashScale>
+                    </li>
+                </verbs>
+                <comps>
+                    <li>
+                        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                    </li>
+                    <li Class="CyberneticWarfare.CompProperties_WargearWeaponToggle"></li>
+                </comps>
+                <thingCategories Inherit="False">
+                    <li>CW_CyborgWeaponry</li>
+                </thingCategories>
+                <weaponTags>
+                    <li>UltraGun</li>
+                </weaponTags>
+            </ThingDef>
+
+            <thingDef ParentName="BaseBullet">
+                <defName>CW_Gunslinger_Bond</defName>
+                <label>Pulse</label>
+                <graphicData>
+                    <texPath>Things/Projectile/Bullet_big</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                </graphicData>
+                <projectile>
+                    <damageDef>Bullet</damageDef>
+                    <damageAmountBase>20</damageAmountBase>
+                    <stoppingPower>1</stoppingPower>
+                    <speed>55</speed>
+                </projectile>
+            </thingDef>
+
+            <thingDef ParentName="BaseBullet">
+                <defName>CW_Pulse_Bond</defName>
+                <label>Pulse</label>
+                <graphicData>
+                    <texPath>Things/Projectile/BladePulse</texPath>
+                    <graphicClass>Graphic_Single</graphicClass>
+                </graphicData>
+                <projectile>
+                    <damageDef>Bullet</damageDef>
+                    <damageAmountBase>17</damageAmountBase>
+                    <armorPenetrationBase>0.1</armorPenetrationBase>
+                    <speed>65</speed>
+                </projectile>
+            </thingDef>
+
+            <RecipeDef>
+                <defName>Make_CW_GunBlade_Bond</defName>
+                <label>bond gun blade</label>
+                <description>Bond an gun blade.</description>
+                <jobString>Bonding a gun blade.</jobString>
+                <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                <effectWorking>Cook</effectWorking>
+                <soundWorking>Recipe_Machining</soundWorking>
+                <workAmount>200000</workAmount>
+                <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                <researchPrerequisite>CW_FrameworkWeaponry</researchPrerequisite>
+                <ingredients>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>CW_GunBlade</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                    <li>
+                        <filter>
+                            <thingDefs>
+                                <li>BondingCore</li>
+                            </thingDefs>
+                        </filter>
+                        <count>1</count>
+                    </li>
+                </ingredients>
+                <fixedIngredientFilter>
+                    <thingDefs>
+                        <li>CW_GunBlade</li>
+                        <li>BondingCore</li>
+                    </thingDefs>
+                </fixedIngredientFilter>
+                <products>
+                    <CW_GunBlade_Bond>1</CW_GunBlade_Bond>
+                </products>
+                <skillRequirements>
+                    <Intellectual>15</Intellectual>
+                </skillRequirements>
+                <workSkill>Intellectual</workSkill>
+                <recipeUsers>
+                    <li>BondingBench</li>
+                </recipeUsers>
+            </RecipeDef>
+        </value>
+    </Operation>
+</Patch>
